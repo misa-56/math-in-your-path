@@ -1,0 +1,39 @@
+{
+  "name": "math-in-your-path",
+  "version": "1.0.0",
+  "description": "Math and Data Science",
+  "main": "index.js",
+  "scripts": {
+    "start": "nodemon --inspect index.js",  
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git", 
+    "url": "git+https://github.com/misa-56/math-in-your-path.git"
+  },
+  "keywords": [
+    "math",
+    "in",
+    "your",
+    "path",
+    "miyp",
+    "math",
+    "machine",
+    "learning",
+    "statistics",
+    "data",
+    "science"
+  ],
+  "author": "misha",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/misa-56/math-in-your-path/issues"
+  },
+  "homepage": "https://github.com/misa-56/math-in-your-path#readme",
+  "dependencies": {
+    "express": "^4.18.2"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.22"
+  }
+}
