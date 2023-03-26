@@ -4,11 +4,11 @@
   "description": "Math and Data Science",
   "main": "index.js",
   "scripts": {
-    "start": "nodemon --inspect index.js",  
+    "start": "nodemon --inspect index.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
-    "type": "git", 
+    "type": "git",
     "url": "git+https://github.com/misa-56/math-in-your-path.git"
   },
   "keywords": [
@@ -34,6 +34,7 @@
     "express": "^4.18.2"
   },
   "devDependencies": {
+    "morgan": "^1.10.0",
     "nodemon": "^2.0.22"
   }
 }
