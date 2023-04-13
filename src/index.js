@@ -16,10 +16,23 @@ app.set('view engine', '.hbs');
 app.set('views', './src/resources/views');
 
 app.get('/', (req, res) => {
-  res.render('home');
+  res.render('partials/main/home/home');
 })
 app.get('/statistics', (req, res) => {
-  res.render('statistics');
+  res.render('partials/main/statistics/statistics');
+})
+app.get('/machine-learning', (req, res) => {
+  res.render('partials/main/machine-learning/machine-learning');
+})
+app.get('/python', (req, res) => {
+  res.render('partials/main/python/python');
+})
+app.get('/projects', (req, res) => {
+  res.render('partials/main/projects/projects');
+})
+//detail page
+app.get('/category/details', (req, res) => {
+  res.render('partials/main/machine-learning/details/details');
 })
 
 app.listen(port, () => {
