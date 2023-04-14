@@ -16,23 +16,29 @@ app.set('view engine', '.hbs');
 app.set('views', './src/resources/views');
 
 app.get('/', (req, res) => {
-  res.render('partials/main/home/home');
+  res.render('partials/user/main/home/home');
 })
 app.get('/statistics', (req, res) => {
-  res.render('partials/main/statistics/statistics');
+  res.render('partials/user/main/statistics/statistics');
 })
 app.get('/machine-learning', (req, res) => {
-  res.render('partials/main/machine-learning/machine-learning');
+  res.render('partials/user/main/machine-learning/machine-learning');
 })
 app.get('/python', (req, res) => {
-  res.render('partials/main/python/python');
+  res.render('partials/user/main/python/python');
 })
 app.get('/projects', (req, res) => {
-  res.render('partials/main/projects/projects');
+  res.render('partials/user/main/projects/projects');
 })
 //detail page
 app.get('/category/details', (req, res) => {
-  res.render('partials/main/machine-learning/details/details');
+  res.render('partials/user/main/machine-learning/details/details');
+})
+
+
+//admin page
+app.get('/kingslanding', (req, res) => {
+  res.render('partials/admin/main/home/home', {layout: 'admin.hbs'});
 })
 
 app.listen(port, () => {
