@@ -40,6 +40,22 @@ app.get('/category/details', (req, res) => {
 app.get('/kingslanding', (req, res) => {
   res.render('partials/admin/main/home/home', {layout: 'admin.hbs'});
 })
+app.get('/kingslanding/statistics', (req, res) => {
+  res.render('partials/admin/main/statistics/statistics', {layout: 'admin.hbs'});
+})
+app.get('/kingslanding/machine-learning', (req, res) => {
+  res.render('partials/admin/main/machine-learning/machine-learning', {layout: 'admin.hbs'});
+})
+app.get('/kingslanding/python', (req, res) => {
+  res.render('partials/admin/main/python/python', {layout: 'admin.hbs'});
+})
+app.get('/kingslanding/projects', (req, res) => {
+  res.render('partials/admin/main/projects/projects', {layout: 'admin.hbs'});
+})
+//detail page
+app.get('/kingslanding/machine-learning/edit', (req, res) => {
+  res.render('partials/admin/main/machine-learning/edit', {layout: 'admin.hbs'});
+})
 
 app.listen(port, () => {
   console.log(`Example app listening on port ${port}`);
