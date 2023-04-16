@@ -52,9 +52,14 @@ app.get('/kingslanding/python', (req, res) => {
 app.get('/kingslanding/projects', (req, res) => {
   res.render('partials/admin/main/projects/projects', {layout: 'admin.hbs'});
 })
-//detail page
-app.get('/kingslanding/machine-learning/edit', (req, res) => {
-  res.render('partials/admin/main/machine-learning/edit', {layout: 'admin.hbs'});
+
+//create page
+app.get('/kingslanding/create', (req, res) => {
+  res.render('partials/admin/main/create', {layout: 'admin.hbs'});
+})
+//edit page
+app.get('/kingslanding/edit', (req, res) => {
+  res.render('partials/admin/main/edit', {layout: 'admin.hbs'});
 })
 
 app.listen(port, () => {
