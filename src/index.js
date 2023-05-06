@@ -34,6 +34,10 @@ app.get('/projects', (req, res) => {
 app.get('/category/details', (req, res) => {
   res.render('partials/user/main/machine-learning/details/details');
 })
+//searching
+app.get('/search', (req, res) => {
+  res.render('partials/user/main/search/search');
+})
 
 
 //admin page
