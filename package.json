@@ -3,7 +3,6 @@
   "version": "1.0.0",
   "description": "Math and Data Science",
   "main": "src/index.js",
-  "type": "module",
   "scripts": {
     "start": "nodemon --inspect src/index.js",
     "watch": "node-sass -w src/resources/scss -o src/public/css",
