@@ -6,9 +6,13 @@ const statisticsController = require('../../app/Controllers/Web/Admin/StatisticC
 const pythonController = require('../../app/Controllers/Web/Admin/PythonController');
 const machineLearningController = require('../../app/Controllers/Web/Admin/MachineLearningController');
 const projectController = require('../../app/Controllers/Web/Admin/ProjectController');
+const userController = require('../../app/Controllers/Web/Admin/UserController');
+
 
 //Home Page
 router.get('/', homeController.index);
+//Login Page
+router.get('/login', userController.index);
 //Statistics Page
 router.get('/statistics', statisticsController.index);
 //Machine Learning Page

@@ -34,7 +34,9 @@
   "dependencies": {
     "express": "^4.18.2",
     "install": "^0.13.0",
-    "npm": "^9.6.3"
+    "mysql2": "^3.3.0",
+    "npm": "^9.6.3",
+    "sequelize": "^6.31.1"
   },
   "devDependencies": {
     "express-handlebars": "^6.0.6",
