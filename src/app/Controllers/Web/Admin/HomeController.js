@@ -1,20 +1,10 @@
-const { models: { User } } = require('../../../Models');
-
+const connection = require('../../../../config/database');
 class HomeController {
 
-    async index(req, res) 
+  async index (req, res)
     {
-        try {
-            const users = await User.findAll();
-            let rows = users.map((row) => {
-                return row.email;
-            })
-            // console.log('email', rows);
-          } catch (error) {
-            console.error(error);
-          }
-
-        res.render('partials/admin/main/home/home', { layout: 'admin.hbs' });
+      let [results, fields] = await connection.promise().query('SELECT * FROM Users');
+      return res.render('partials/admin/main/home/home', { layout: 'admin.hbs', user: results[0] });
     }
 }
 

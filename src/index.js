@@ -4,16 +4,18 @@ const handlebars = require('express-handlebars');
 const {engine} = handlebars;
 // import morgan from 'morgan';
 const morgan = require('morgan');
+//import .env
+require('dotenv').config();
 //import db
-const db = require('./app/Models');
-const connection = require('./config/db-config');
+const connection = require('./config/database');
+
 // import routes
 const home = require('./routes/web');
 const admin = require('./routes/web/kingslanding');
 
 
 const app = express();
-const port = 3000; 
+const port = process.env.PORT || 3000; 
 
 app.use(express.static('./src/public'));
 //HTTP logger
@@ -23,10 +25,6 @@ app.use(morgan('combined'));
 app.engine('.hbs', engine({extname: '.hbs'}));
 app.set('view engine', '.hbs');
 app.set('views', './src/resources/views');
-
-(async () =>{
-  await db.sequelize.sync();
-})();
 
 //routes
 app.use('/', home),
