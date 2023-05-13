@@ -1,10 +1,18 @@
-const connection = require('../../../../config/database');
+const User = require('../../../Models/User');
+
 class HomeController {
 
   async index (req, res)
     {
-      let [results, fields] = await connection.promise().query('SELECT * FROM Users');
-      return res.render('partials/admin/main/home/home', { layout: 'admin.hbs', user: results[0] });
+      try{
+        const users = await User.findAll();
+        // console.log(users[0].name);
+        res.render('partials/admin/main/home/home', { layout: 'admin.hbs', username: users[0].name });
+      }
+      catch (error){
+        console.error(error);
+        res.status(500).send('Internal Server Error');
+      }
     }
 }
 

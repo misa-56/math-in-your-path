@@ -7,6 +7,7 @@ const pythonController = require('../../app/Controllers/Web/Admin/PythonControll
 const machineLearningController = require('../../app/Controllers/Web/Admin/MachineLearningController');
 const projectController = require('../../app/Controllers/Web/Admin/ProjectController');
 const userController = require('../../app/Controllers/Web/Admin/UserController');
+const articleController = require('../../app/Controllers/Web/Admin/ArticleController');
 
 
 //Home Page
@@ -23,9 +24,7 @@ router.get('/python', pythonController.index);
 router.get('/projects', projectController.index)
 
 //create page
-router.get('/create', (req, res) => {
-    res.render('partials/admin/main/create', {layout: 'admin.hbs'});
-})
+router.get('/create', articleController.create)
 //edit page
 router.get('/edit', (req, res) => {
     res.render('partials/admin/main/edit', {layout: 'admin.hbs'});

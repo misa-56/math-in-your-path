@@ -7,7 +7,9 @@ const morgan = require('morgan');
 //import .env
 require('dotenv').config();
 //import db
-const connection = require('./config/database');
+// const sequelize = require('./config/database');
+const db = require('./app/Models');
+db.connectDB();
 
 // import routes
 const home = require('./routes/web');
