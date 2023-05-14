@@ -1,5 +1,7 @@
 const express = require('express');
 const handlebars = require('express-handlebars');
+// body-parser middleware
+const bodyParser = require('body-parser');
 // import handlebars from 'express-handlebars';
 const {engine} = handlebars;
 // import morgan from 'morgan';
@@ -17,6 +19,11 @@ const admin = require('./routes/web/kingslanding');
 
 
 const app = express();
+
+app.use(bodyParser.urlencoded({
+  extended: true
+}));
+app.use(bodyParser.json());
 const port = process.env.PORT || 3000; 
 
 app.use(express.static('./src/public'));

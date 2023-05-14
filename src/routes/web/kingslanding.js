@@ -21,13 +21,12 @@ router.get('/machine-learning', machineLearningController.index);
 //Python Page
 router.get('/python', pythonController.index);
 //Project Page
-router.get('/projects', projectController.index)
+router.get('/projects', projectController.index);
 
 //create page
-router.get('/create', articleController.create)
+router.get('/articles/create', articleController.create);
+router.post('/articles/create', articleController.store);
 //edit page
-router.get('/edit', (req, res) => {
-    res.render('partials/admin/main/edit', {layout: 'admin.hbs'});
-})
+router.get('/edit', articleController.edit);
 
 module.exports = router
