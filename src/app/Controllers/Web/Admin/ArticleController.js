@@ -16,20 +16,26 @@ class ArticleController {
   async store (req, res)
   {
     console.log(req.body);
-    if(req.body.category && req.body.status && req.body.title) {
-      const { category, status, title } = req.body;
-      
-      await Article.create({ 
-        category, 
-        status, 
-        title,
-      });
+    try{
+      if(req.body.category && req.body.status && req.body.title) {
+        const { category, status, title, content } = req.body;
+        
+        await Article.create({ 
+          category, 
+          status, 
+          title,
+          content,
+        });
 
-      res.redirect('/kingslanding');
+        res.redirect('/kingslanding');
 
+      }
+      else{
+        res.send('Not added to db');
+      }
     }
-    else{
-      res.send('Not added to db');
+    catch(error){
+      console.error(error);
     }
   }
 

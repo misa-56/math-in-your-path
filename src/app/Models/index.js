@@ -7,7 +7,9 @@ async function connectDB() {
 
     await User.sync();
     console.log("The table for the User model was just (re)created!");
-    await Article.sync({force: true});
+    await Article.sync({
+        // force: true
+    });
     console.log("The table for the Article model was just (re)created!");
 }
   
