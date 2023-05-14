@@ -7,7 +7,7 @@ class HomeController {
       try{
         const users = await User.findAll();
         // console.log(users[0].name);
-        res.render('partials/admin/main/home/home', { layout: 'admin.hbs', username: users[0].name });
+        res.render('partials/admin/main/home/home', { layout: 'admin.hbs' });
       }
       catch (error){
         console.error(error);

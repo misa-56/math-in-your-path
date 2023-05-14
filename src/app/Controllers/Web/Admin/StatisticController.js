@@ -1,8 +1,13 @@
+const Article = require('../../../Models/Article');
+
 class StatisticsController {
 
-    index(req, res) 
+    async index(req, res) 
     {
-        res.render('partials/admin/main/statistics/statistics', {layout: 'admin.hbs'});
+        const articles = await Article.findAll();
+        console.log(articles);
+
+        res.render('partials/admin/main/statistics/statistics', {layout: 'admin.hbs', articles: articles});
     }
 }
 
