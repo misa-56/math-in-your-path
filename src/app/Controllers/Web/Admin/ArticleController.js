@@ -18,13 +18,15 @@ class ArticleController {
     console.log(req.body);
     try{
       if(req.body.category && req.body.status && req.body.title) {
-        const { category, status, title, content } = req.body;
+        const { category, status, title, content, intro, featured } = req.body;
         
         await Article.create({ 
           category, 
           status, 
           title,
           content,
+          intro,
+          featured,
         });
 
         res.redirect('/kingslanding');

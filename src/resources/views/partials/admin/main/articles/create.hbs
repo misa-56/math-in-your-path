@@ -21,7 +21,7 @@
       <!-- SELECT2 EXAMPLE -->
       <div class="card card-default">
         <div class="card-header">
-          <h3 class="card-title">Select</h3>
+          <h3 class="card-title">Options</h3>
           <div class="card-tools">
             <button type="button" class="btn btn-tool" data-card-widget="collapse">
               <i class="fas fa-minus"></i>
@@ -31,7 +31,7 @@
         <!-- /.card-header -->
         <div class="card-body">
           <div class="row">
-            <div class="col-md-6">
+            <div class="col-md-4">
               <div class="form-group">
                 <label>Choose Category</label>
                 <select class="form-control select2" name="category" style="width: 100%;">
@@ -43,7 +43,7 @@
               </div>
             </div>
             <!-- /.col -->
-            <div class="col-md-6">
+            <div class="col-md-4">
               <!-- /.form-group -->
               <div class="form-group">
                 <label>Status</label>
@@ -55,13 +55,35 @@
               <!-- /.form-group -->
             </div>
             <!-- /.col -->
+            <div class="col-md-4">
+              <!-- /.form-group -->
+              <div class="form-group">
+                <label>Set featured article</label>
+                <select class="form-control select2" name="featured" style="width: 100%;">
+                  <option selected="selected" value="0">No</option>
+                  <option value="1">Yes</option>
+                </select>
+              </div>
+              <!-- /.form-group -->
+            </div>
+            <!-- /.col -->
           </div>
           <!-- /.row -->
           <h5>Title</h5>
-              <div class="form-group">
-                  <input type="text" name="title" value="" class="form-control my-colorpicker1">
-              </div>  
+          <div class="form-group">
+              <input type="text" name="title" value="" class="form-control my-colorpicker1">
+          </div>  
           <!-- /.row -->
+          <!-- /.row -->
+          <h5>Short information</h5>
+          <div class="form-group">
+              <textarea type="text" name="intro" class="form-control my-colorpicker1"></textarea>
+          </div>
+          <!-- /.row -->
+          <div class="form-group">
+              <h5>Upload image</h5>
+              <input type="file" id="img" name="">
+          </div>
         </div>
         <!-- /.card-body -->
       </div>

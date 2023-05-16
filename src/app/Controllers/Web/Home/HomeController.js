@@ -4,11 +4,29 @@ class HomeController {
 
     async index(req, res) 
     {
+        const limit = 2; // Number of articles per page
+        const offset = parseInt(req.query.offset) || 0; // Start offset
         const articles = await Article.findAll({
+            limit,
+            offset,
             order:[['createdAt', 'DESC']],
-            limit: 20,
         });
         console.log('articles', articles);
+
+        const featuredArticles = await Article.findAll({
+            raw: true,
+            order:[['createdAt', 'DESC']],
+            limit: 3,
+        });
+        const modifiedFeaturedArticles = featuredArticles.map(article => {
+            return {
+              ...article,
+              slug: article.title.replace(/ /g, '-'),
+              // Add more custom fields as needed
+            };
+        });
+        // featuredArticles.createdAt = featuredArticles.createdAt.toISOString().split('T')[0];
+        console.log(modifiedFeaturedArticles[0]);
 
         // const articlesWithOwnProperties = articles.map(article => Object.assign({}, article.get({ plain: true })));
 
@@ -21,7 +39,10 @@ class HomeController {
             return plainArticle;
           });
 
-          res.render('partials/user/main/home/home', { articles: articlesWithOwnProperties });
+          res.render('partials/user/main/home/home', 
+          { articles: articlesWithOwnProperties, 
+            featured: modifiedFeaturedArticles.slice(1, 3), 
+            newestFeatured: modifiedFeaturedArticles[0] });
     }
 }
 

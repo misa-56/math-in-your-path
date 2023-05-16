@@ -21,6 +21,11 @@ Article.init({
     type: DataTypes.TEXT('long'),
     allowNull: true,
   },
+  featured: {
+    type: DataTypes.STRING,
+    allowNull: false,
+    defaultValue: 0,
+  },
   content: {
     type: DataTypes.TEXT('long'),
     allowNull: true,
