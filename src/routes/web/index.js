@@ -5,6 +5,7 @@ const statisticsController = require('../../app/Controllers/Web/Home/StatisticCo
 const pythonController = require('../../app/Controllers/Web/Home/PythonController');
 const machineLearningController = require('../../app/Controllers/Web/Home/MachineLearningController');
 const projectController = require('../../app/Controllers/Web/Home/ProjectController');
+const articleController = require('../../app/Controllers/Web/Home/ArticleController');
 
 router.get('/', homeController.index );
 router.get('/statistics', statisticsController.index);
@@ -12,12 +13,11 @@ router.get('/machine-learning', machineLearningController.index);
 router.get('/python', pythonController.index);
 router.get('/projects', projectController.index);
 //detail page
-router.get('/category/details', (req, res) => {
-res.render('partials/user/main/machine-learning/details/details');
-})
+router.get('/:slug/:id', articleController.show);
 //searching
 router.get('/search', (req, res) => {
 res.render('partials/user/main/search/search');
 })  
+
 
 module.exports = router;

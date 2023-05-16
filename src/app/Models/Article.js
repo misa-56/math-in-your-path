@@ -17,6 +17,10 @@ Article.init({
     type: DataTypes.STRING,
     allowNull: false,
   },
+  intro: {
+    type: DataTypes.TEXT('long'),
+    allowNull: true,
+  },
   content: {
     type: DataTypes.TEXT('long'),
     allowNull: true,

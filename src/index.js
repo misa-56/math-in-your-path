@@ -9,7 +9,6 @@ const morgan = require('morgan');
 //import .env
 require('dotenv').config();
 //import db
-// const sequelize = require('./config/database');
 const db = require('./app/Models');
 db.connectDB();
 
@@ -36,9 +35,7 @@ app.set('view engine', '.hbs');
 app.set('views', './src/resources/views');
 
 //routes
-app.use('/', home),
-app.use('/kingslanding', admin, express.static('./src/public')),
+app.use('/', home);
+app.use('/kingslanding', admin, express.static('./src/public'));
 
-app.listen(port, () => {
-  console.log(`Example app listening on port ${port}`);
-})
+app.listen(port, () => {});
