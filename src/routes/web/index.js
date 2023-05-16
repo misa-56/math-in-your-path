@@ -13,7 +13,7 @@ router.get('/machine-learning', machineLearningController.index);
 router.get('/python', pythonController.index);
 router.get('/projects', projectController.index);
 //detail page
-router.get('/:slug/:id', articleController.show);
+router.get('/posts/:slug/:id', articleController.show);
 //searching
 router.get('/search', (req, res) => {
 res.render('partials/user/main/search/search');

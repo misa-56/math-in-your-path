@@ -1,6 +1,6 @@
 const Article = require('../../../Models/Article');
 
-class MachineLearningController {
+class ArticleController {
 
     async show(req, res) 
     {
@@ -23,4 +23,4 @@ class MachineLearningController {
     }
 }
 
-module.exports = new MachineLearningController;
+module.exports = new ArticleController;
