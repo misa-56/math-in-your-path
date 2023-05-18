@@ -9,7 +9,7 @@ class HomeController {
         const articles = await Article.findAll({
             raw: true,
             limit: 20,
-            offset,
+            // offset,
             order:[['createdAt', 'DESC']],
         });
 
@@ -22,12 +22,14 @@ class HomeController {
             return {
               ...article,
               slug: article.title.replace(/ /g, '-'),
+              categorySlug: article.category.replace(/ /g, '-'),
               // Add more custom fields as needed
             };
         });
 
         const articlesWithOwnProperties = articles.map(article => {
             article.slug = article.title.replace(/ /g, '-');
+            article.categorySlug = article.category.replace(/ /g, '-'),
             article.updatedAt = article.updatedAt.toISOString().split('T')[0];
             return article;
           });

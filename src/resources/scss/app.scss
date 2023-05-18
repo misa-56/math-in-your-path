@@ -92,7 +92,7 @@ body {
   .fw-semibold { font-weight: 600; }
   .lh-tight { line-height: 1.25; }
   
-
+  .pl-1 {padding-left: 1rem!important;}
   //sidebar
 
   .nav-pills .nav-link.active, .nav-pills .show>.nav-link {
@@ -106,7 +106,7 @@ body {
 
 .nav-link{
   color: #1a1a1a;
-  width: 130px;
+  width: 72px;
   height: 72px;
 
   span{

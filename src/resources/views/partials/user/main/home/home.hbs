@@ -2,14 +2,19 @@
 
 <div class="p-4 p-md-5 mb-4 text-white rounded bg-dark d-flex">
   <div class="col-md-6 px-0">
-    <h1 class="display-4 fst-italic">{{ newestFeatured.title }}</h1>
-    <p class="lead my-3"
-        style="overflow: hidden; 
+    <h1 class="display-4 fst-italic"
+    style="overflow: hidden;
         display: -webkit-box; 
         -webkit-line-clamp: 2;
         line-clamp: 2;
+        -webkit-box-orient: vertical;">{{ newestFeatured.title }}</h1>
+    <p class="lead my-3"
+        style="overflow: hidden; 
+        display: -webkit-box; 
+        -webkit-line-clamp: 3;
+        line-clamp: 3;
         -webkit-box-orient: vertical;">{{ newestFeatured.intro }}</p>
-    <p class="lead mb-0"><a href="/posts/{{ newestFeatured.slug }}/{{ newestFeatured.id }}" class="text-white fw-bold">Continue reading...</a></p>
+    <p class="lead mb-0"><a href="/posts/{{ newestFeatured.slug }}/{{ newestFeatured.id }}" class="text-white fw-bold text-decoration-none">Continue reading...</a></p>
   </div>
   <img src="https://i.imgflip.com/5jqm9r.jpg" class="w-50" height="auto"/>
 </div>
@@ -19,14 +24,14 @@
   <div class="col-md-4">
     <div class="row g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
       <div class="col p-4 d-flex flex-column position-static">
-        <strong class="d-inline-block mb-2 text-success">{{ category }}</strong>
+        <a href="/{{ categorySlug }}" class="d-inline-block mb-2 link-success text-decoration-none">{{ category }}</a>
         <h4 class="mb-0" style="overflow: hidden; 
             display: -webkit-box; 
             -webkit-line-clamp: 2;
             line-clamp: 2;
-            -webkit-box-orient: vertical;">{{ title }}</h4>
+            -webkit-box-orient: vertical;"><a href="/posts/{{ slug }}/{{ id }}" class="text-decoration-none text-dark">{{ title }}</a></h4>
         {{!-- <div class="mb-1 text-muted">{{ createdAt }}</div> --}}
-        <p class="card-text mb-auto"
+        <p class="card-text mb-auto pb-1"
             style="overflow: hidden; 
             display: -webkit-box; 
             -webkit-line-clamp: 2;
@@ -35,7 +40,7 @@
           {{ intro }}
         </p>
         <a href="/" class="text-decoration-none fw-bold text-dark">Nhat Hoang</a>
-        <a href="/posts/{{ slug }}/{{ id }}" class="stretched-link">Continue reading</a>
+        <a href="/posts/{{ slug }}/{{ id }}" class="text-decoration-none">Continue reading</a>
       </div>
       {{!-- <div class="col-auto d-none d-lg-block">
         <svg class="bd-placeholder-img" width="200" height="250" xmlns="http://www.w3.org/2000/svg" role="img" 
@@ -63,10 +68,10 @@
                 <div class="">
                     <div class="row g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative ">
                         <div class="col p-4 d-flex flex-column position-static">
-                            <strong class="d-inline-block mb-2 text-primary">{{ category }}</strong>
+                            <a href="/{{ categorySlug }}" class="d-inline-block mb-2 text-success text-decoration-none">{{ category }}</a>
                             <div class="d-flex">
                                 <div>
-                                    <h3 class="mb-0">{{ title }}</h3>
+                                    <h3 class="mb-0"><a href="/posts/{{ slug }}/{{ id }}" class="text-decoration-none text-dark">{{ title }}</a></h3>
                                     <div class="mb-1 text-muted">{{ updatedAt }}</div>
                                     <p class="card-text mb-auto" 
                                     style="overflow: hidden; 
@@ -76,7 +81,7 @@
                                     -webkit-box-orient: vertical;">
                                     {{ intro }}
                                     </p>
-                                    <a href="/posts/{{ slug }}/{{ id }}" class="stretched-link">Continue reading</a>
+                                    <a href="/posts/{{ slug }}/{{ id }}" class="text-decoration-none">Continue reading</a>
                                 </div>
                                 <div class="col-auto d-none d-lg-block">
                                     <img class="bd-placeholder-img rounded" width="200" height="120" src="https://files.fullstack.edu.vn/f8-prod/blog_posts/6936/6422afa5a62f8.jpg"></img>
