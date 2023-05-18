@@ -8,7 +8,7 @@ class HomeController {
         // const offset = req.query.page ? (req.query.page - 1) * limit : 0;
         const articles = await Article.findAll({
             raw: true,
-            limit: 20,
+            limit: 15,
             // offset,
             order:[['createdAt', 'DESC']],
         });
@@ -40,6 +40,19 @@ class HomeController {
             featured: modifiedFeaturedArticles.slice(1, 4), 
             newestFeatured: modifiedFeaturedArticles[0] 
         });
+    }
+
+    async loadMore(req, res)
+    {
+        const { offset } = req.query;
+        const articles = await Article.findAll({
+            raw: true,
+            limit: 10,
+            offset: parseInt(offset),
+            order:[['createdAt', 'DESC']],
+          });
+
+        res.json({ articles });
     }
 }
 

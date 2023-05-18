@@ -63,10 +63,10 @@
 
     <article class="blog-post">
       <div class="">
-        <div class="row mb-2 articles-container">
+        <div class="row mb-2" id="articles-container">
             {{#each articles}}
-                <div class="">
-                    <div class="row g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative ">
+                {{!-- <div class="article"> --}}
+                    <div class="row g-0 border rounded overflow-hidden flex-md-row mb-1 shadow-sm h-md-250 position-relative article">
                         <div class="col p-4 d-flex flex-column position-static">
                             <a href="/{{ categorySlug }}" class="d-inline-block mb-2 text-success text-decoration-none">{{ category }}</a>
                             <div class="d-flex">
@@ -89,8 +89,11 @@
                             </div>
                         </div>
                     </div>
-                </div>
+                {{!-- </div> --}}
             {{/each}}
+            <div id="load-more-container" class="my-2">
+              <button class="btn btn-warning rounded-pill w-100" id="load-more-btn">Load More</button>
+            </div>
         </div>
       </div>
     </article>
@@ -132,3 +135,5 @@
     </div>
   </div>
 </div>
+
+<script src="/js/load-more.js"></script>

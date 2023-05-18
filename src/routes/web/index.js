@@ -8,6 +8,7 @@ const projectController = require('../../app/Controllers/Web/Home/ProjectControl
 const articleController = require('../../app/Controllers/Web/Home/ArticleController');
 
 router.get('/', homeController.index );
+router.get('/load-more', homeController.loadMore);
 router.get('/statistics', statisticsController.index);
 router.get('/machine-learning', machineLearningController.index);
 router.get('/python', pythonController.index);
