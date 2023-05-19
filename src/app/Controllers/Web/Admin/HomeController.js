@@ -5,8 +5,8 @@ class HomeController {
   async index (req, res)
     {
       try{
-        const users = await User.findAll();
-        res.render('partials/admin/main/home/home', { layout: 'admin.hbs', username: users[0].name });
+        const user = req.session.user;
+        res.render('partials/admin/main/home/home', { layout: 'admin.hbs', user });
       }
       catch (error){
         console.error(error);

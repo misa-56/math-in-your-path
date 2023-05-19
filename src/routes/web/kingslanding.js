@@ -1,4 +1,3 @@
-
 const express = require('express');
 const router = express.Router();
 const homeController = require('../../app/Controllers/Web/Admin/HomeController');
@@ -9,11 +8,31 @@ const projectController = require('../../app/Controllers/Web/Admin/ProjectContro
 const userController = require('../../app/Controllers/Web/Admin/UserController');
 const articleController = require('../../app/Controllers/Web/Admin/ArticleController');
 
+const isAuthenticated = (req, res, next) => {
+  // Check if the user is authenticated
+  // For example, check if the user session exists
+  // If the user is not authenticated, you can redirect them to the login page or send an error response
+  if (!req.session.user) {
+    res.redirect('/kingslanding/login');
+    return;
+  }
+    // Pass the user object to res.locals
+    res.locals.user = req.session.user;
+  // If the user is authenticated, continue to the next middleware or route handler
+  next();
+};
+
+// Login routes accessible without authentication
+router.get('/login', userController.index);
+router.post('/login', userController.login);
+
+// Apply the isAuthenticated middleware to all routes that come after it
+router.use(isAuthenticated);
+
+// Routes accessible only when the user is authenticated
 
 //Home Page
 router.get('/', homeController.index);
-//Login Page
-router.get('/login', userController.index);
 //Statistics Page
 router.get('/statistics', statisticsController.index);
 //Machine Learning Page
@@ -29,4 +48,4 @@ router.post('/articles/create', articleController.store);
 //edit page
 router.get('/edit', articleController.edit);
 
-module.exports = router
+module.exports = router;
