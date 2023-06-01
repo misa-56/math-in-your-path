@@ -11,8 +11,7 @@ module.exports = {
     login(req, res)
     {
         const { email, password } = req.body;
-        // console.log(email, password);
-        User.findOne({ email })
+        User.findOne({ where: {email} })
         .then(user => {
             if(user){
                 bcrypt.compare(password, user.password)
@@ -35,18 +34,18 @@ module.exports = {
                 .catch(error => {
                     console.error('Error:', error);
                     // Handle the error case appropriately
-                    res.render('partials/admin/main/login', { error: 'An error occurred' });
+                    res.render('partials/admin/main/login', { layout: '',error: 'An error occurred' });
                 });
             } else {
                 // User not found in the database
                 // Handle the case where login fails, such as showing an error message
-                res.render('partials/admin/main/login', { error: 'Invalid email or password' });
+                res.render('partials/admin/main/login', { layout: '',error: 'Invalid email or password' });
             }
         })
         .catch(error => {
             console.error('Error:', error);
             // Handle the error case appropriately
-            res.render('login', { error: 'An error occurred' });
+            res.render('login', {layout: '', error: 'An error occurred' });
         });
     }
 }
