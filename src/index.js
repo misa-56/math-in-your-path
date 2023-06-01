@@ -59,4 +59,17 @@ app.set('views', './src/resources/views');
 app.use('/', home);
 app.use('/kingslanding', admin, express.static('./src/public'));
 
+//webhook
+app.post('/webhook', (req, res) => {
+  // Retrieve the payload data from the request body
+  const payload = req.body;
+
+  // Process the payload or perform any necessary actions
+  // For example, you can log the payload data or trigger a deployment process
+  console.log('Received webhook payload:', payload);
+
+  // Send a response to acknowledge the webhook event
+  res.status(200).send('Webhook received successfully');
+});
+
 app.listen(port, () => {});
