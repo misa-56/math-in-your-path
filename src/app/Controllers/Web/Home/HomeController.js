@@ -1,8 +1,58 @@
+const Article = require('../../../Models/Article');
+
 class HomeController {
 
-    index(req, res) 
+    async index(req, res) 
     {
-        res.render('partials/user/main/home/home');
+        // const limit = 2; // Number of articles per page
+        // const offset = req.query.page ? (req.query.page - 1) * limit : 0;
+        const articles = await Article.findAll({
+            raw: true,
+            limit: 15,
+            // offset,
+            order:[['createdAt', 'DESC']],
+        });
+
+        const featuredArticles = await Article.findAll({
+            raw: true,
+            order:[['createdAt', 'DESC']],
+            limit: 4,
+        });
+        const modifiedFeaturedArticles = featuredArticles.map(article => {
+            return {
+              ...article,
+              slug: article.title.replace(/ /g, '-'),
+              categorySlug: article.category.replace(/ /g, '-'),
+              // Add more custom fields as needed
+            };
+        });
+
+        const articlesWithOwnProperties = articles.map(article => {
+            article.slug = article.title.replace(/ /g, '-');
+            article.categorySlug = article.category.replace(/ /g, '-'),
+            article.updatedAt = article.updatedAt.toISOString().split('T')[0];
+            return article;
+          });
+
+        res.render('partials/user/main/home/home',
+        {
+            articles: articlesWithOwnProperties, 
+            featured: modifiedFeaturedArticles.slice(1, 4), 
+            newestFeatured: modifiedFeaturedArticles[0] 
+        });
+    }
+
+    async loadMore(req, res)
+    {
+        const { offset } = req.query;
+        const articles = await Article.findAll({
+            raw: true,
+            limit: 10,
+            offset: parseInt(offset),
+            order:[['createdAt', 'DESC']],
+          });
+
+        res.json({ articles });
     }
 }
 

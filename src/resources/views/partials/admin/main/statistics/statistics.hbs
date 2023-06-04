@@ -24,98 +24,40 @@
                   <table class="table table-hover">
                     <thead>
                       <tr>
-                        <th>Article</th>
-                        <th>Date</th>
-                        <th>User</th>
-                        <th>Status</th>
-                        <th>Actions</th>
+                        <th width="5%">ID</th>
+                        <th>Title</th>
+                        <th width="10%">Date</th>
+                        <th width="5%">User</th>
+                        <th width="5%">Status</th>
+                        <th width="5%">Actions</th>
                       </tr>
                     </thead>
                     <tbody class="table-border-bottom-0">
-                      <tr>
-                        <td><i class="fab fa-angular fa-lg text-danger me-3"></i> <strong>{{#each articles}}
-   {{title}}
-{{/each}}</strong></td>
-                        <td>2023-01-01</td>
-                        <td>
-                            <img src="https://media.licdn.com/dms/image/D5603AQHMBSjJs4Dx-A/profile-displayphoto-shrink_800_800/0/1670769339915?e=1686182400&v=beta&t=3_QuUzhrVGOVyV7DZyzY0TuRktEVptMdTze_MNRJCtc" width="25px" height="25px" alt="Avatar" class="rounded-circle" />
-                        </td>
-                        <td><span class="badge bg-label-primary me-1">Active</span></td>
-                        <td>
-                          <!-- Messages Dropdown Menu -->
-                            <button type="button" class="btn p-0 dropdown-toggle hide-arrow" data-bs-toggle="dropdown" data-toggle="dropdown"></button>                                
-                            <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right">
-                                <a class="dropdown-item" href="/kingslanding/edit"
-                                    ><i class="fas fa-edit"></i></i> Edit</a
-                                >
-                                <a class="dropdown-item" href="#"
-                                    ><i class="fas fa-trash"></i></i> Delete</a
-                                >
-                            </div>
-                        </td>
-                      </tr>
-                      <tr>
-                        <td><i class="fab fa-react fa-lg text-info me-3"></i> <strong>Bacon ipsum dolor sit amet salami venison chicken flank fatback doner.</strong></td>
-                        <td>2023-01-01</td>
-                        <td>
-                          <img src="https://media.licdn.com/dms/image/D5603AQHMBSjJs4Dx-A/profile-displayphoto-shrink_800_800/0/1670769339915?e=1686182400&v=beta&t=3_QuUzhrVGOVyV7DZyzY0TuRktEVptMdTze_MNRJCtc" width="25px" height="25px" alt="Avatar" class="rounded-circle" />
-                        </td>
-                        <td><span class="badge bg-label-success me-1">Completed</span></td>
-                        <td>
-                          <!-- Messages Dropdown Menu -->
-                            <button type="button" class="btn p-0 dropdown-toggle hide-arrow" data-bs-toggle="dropdown" data-toggle="dropdown"></button>                                
-                            <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right">
-                                <a class="dropdown-item" href="/kingslanding/edit"
-                                    ><i class="fas fa-edit"></i></i> Edit</a
-                                >
-                                <a class="dropdown-item" href="#"
-                                    ><i class="fas fa-trash"></i></i> Delete</a
-                                >
-                            </div>
-                        </td>
-                      </tr>
-                      <tr>
-                        <td><i class="fab fa-vuejs fa-lg text-success me-3"></i> <strong>Bacon ipsum dolor sit amet salami venison chicken flank fatback doner.</strong></td>
-                        <td>2023-01-01</td>
-                        <td>
-                          <img src="https://media.licdn.com/dms/image/D5603AQHMBSjJs4Dx-A/profile-displayphoto-shrink_800_800/0/1670769339915?e=1686182400&v=beta&t=3_QuUzhrVGOVyV7DZyzY0TuRktEVptMdTze_MNRJCtc" width="25px" height="25px" alt="Avatar" class="rounded-circle" />
-                        </td>
-                        <td><span class="badge bg-label-info me-1">Scheduled</span></td>
-                        <td>
-                          <!-- Messages Dropdown Menu -->
-                            <button type="button" class="btn p-0 dropdown-toggle hide-arrow" data-bs-toggle="dropdown" data-toggle="dropdown"></button>                                
-                            <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right">
-                                <a class="dropdown-item" href="/kingslanding/edit"
-                                    ><i class="fas fa-edit"></i></i> Edit</a
-                                >
-                                <a class="dropdown-item" href="#"
-                                    ><i class="fas fa-trash"></i></i> Delete</a
-                                >
-                            </div>
-                        </td>
-                      </tr>
-                      <tr>
-                        <td>
-                          <i class="fab fa-bootstrap fa-lg text-primary me-3"></i> <strong>Bacon ipsum dolor sit amet salami venison chicken flank fatback doner.</strong>
-                        </td>
-                        <td>2023-01-01</td>
-                        <td>
-                          <img src="https://media.licdn.com/dms/image/D5603AQHMBSjJs4Dx-A/profile-displayphoto-shrink_800_800/0/1670769339915?e=1686182400&v=beta&t=3_QuUzhrVGOVyV7DZyzY0TuRktEVptMdTze_MNRJCtc" width="25px" height="25px" alt="Avatar" class="rounded-circle" />
-                        </td>
-                        <td><span class="badge bg-label-warning me-1">Pending</span></td>
-                        <td>
-                          <!-- Messages Dropdown Menu -->
-                            <button type="button" class="btn p-0 dropdown-toggle hide-arrow" data-bs-toggle="dropdown" data-toggle="dropdown"></button>                                
-                            <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right">
-                                <a class="dropdown-item" href="/kingslanding/edit"
-                                    ><i class="fas fa-edit"></i></i> Edit</a
-                                >
-                                <a class="dropdown-item" href="#"
-                                    ><i class="fas fa-trash"></i></i> Delete</a
-                                >
-                            </div>
-                        </td>
-                      </tr>
+                      {{#each articles}}
+                        <tr>
+                          <td>{{ id }}</td>
+                          <td><strong>{{ title }}</strong></td>
+                          <td>{{ updatedAt }}</td>
+                          <td>
+                              <img src="https://media.licdn.com/dms/image/D5603AQHMBSjJs4Dx-A/profile-displayphoto-shrink_800_800/0/1670769339915?e=1686182400&v=beta&t=3_QuUzhrVGOVyV7DZyzY0TuRktEVptMdTze_MNRJCtc" width="25px" height="25px" alt="Avatar" class="rounded-circle" />
+                          </td>
+                          <td>
+                            <span class="badge bg-label-primary me-1">{{ status }}</span>
+                          </td>
+                          <td>
+                            <!-- Messages Dropdown Menu -->
+                              <button type="button" class="btn p-0 dropdown-toggle hide-arrow" data-bs-toggle="dropdown" data-toggle="dropdown"></button>                                
+                              <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right">
+                                  <a class="dropdown-item" href="/kingslanding/edit"
+                                      ><i class="fas fa-edit"></i></i> Edit</a
+                                  >
+                                  <a class="dropdown-item" href="#"
+                                      ><i class="fas fa-trash"></i></i> Delete</a
+                                  >
+                              </div>
+                          </td>
+                        </tr>
+                      {{/each}}
                     </tbody>
                   </table>
                    <!-- /.card-body -->

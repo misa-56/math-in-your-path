@@ -35,7 +35,7 @@
         <div class="preloader flex-column justify-content-center align-items-center">
             <img class="animation__shake rounded-circle" src="/img/miyp_logo.jpeg" alt="miypLogo" height="100" width="100">
         </div>
-        {{> admin/sidebar/sidebar }}
+        {{> admin/sidebar/sidebar username=user.name}}
         {{> admin/header/header }}
         <div class="content-wrapper">{{{ body }}}</div>
         {{> admin/footer/footer }}
