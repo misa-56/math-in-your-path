@@ -1,16 +1,18 @@
 <nav class="navbar navbar-light bg-white">
   <div class="container-fluid">
     <a href="/" class="text-decoration-none"><strong class="text-danger fst-italic fs-2">//</strong><strong class="text-dark fst-italic fs-2">MIYP</strong></a>
-    <form class="d-flex" style="width: 450px;" method="post" action="/search">
+    <form class="d-flex" style="width: 450px;" 
+    {{!-- method="post" action="/" --}}
+    >
       <div class="input-group rounded">
         <input type="search" class="form-control rounded" value="" placeholder="Search" aria-label="Search" aria-describedby="search-addon" />
-        <button class="input-group-text border-0" type="submit" id="search-addon">
+        <button class="input-group-text border-0" type="submit" id="search-addon" onclick="buildingFunction()">
           <i class="fas fa-search"></i>
         </button>
       </div>
     </form>
-    <button class="btn btn-outline-secondary border-right-0" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-        Login
+    <button onclick="buildingFunction()" class="btn btn-outline-dark border-right-0" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        German
     </button>
   </div>
 </nav>
