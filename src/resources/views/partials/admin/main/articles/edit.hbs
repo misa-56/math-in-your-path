@@ -62,7 +62,7 @@
             <!-- /.row -->
             <h5>Title</h5>
                 <div class="form-group">
-                    <input type="text" class="form-control my-colorpicker1">
+                    <input type="text" class="form-control my-colorpicker1" value="{{ article.title }}">
                 </div>  
             <!-- /.row -->
           </div>
@@ -88,6 +88,7 @@
           <!-- /.card-header -->
           <div class="card-body">
             <div id="editor"></div>
+            {{!-- <textarea class="w-100">{{ article.content }}</textarea> --}}
             <!-- /.row -->
           </div>
           <!-- /.card-body -->
@@ -102,4 +103,21 @@
     </section>
     <!-- /.content -->
 
-    
+<script>
+  ClassicEditor
+    .create( document.querySelector( '#editor' ) )
+    .then( editor => {
+      // Get the article content from the HTML template
+      const encodedData = `{{ article.content }}`; // Replace with the actual value of article.content
+      const parser = new DOMParser();
+      const decodedData = parser.parseFromString(encodedData, 'text/html').documentElement.textContent;
+
+      // Set the decoded data in the CKEditor instance
+      editor.setData(decodedData);
+    })
+    .catch( error => {
+      console.error( error );
+    });
+</script>
+
+

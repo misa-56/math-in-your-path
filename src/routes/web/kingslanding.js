@@ -46,6 +46,6 @@ router.get('/projects', projectController.index);
 router.get('/articles/create', articleController.create);
 router.post('/articles/create', articleController.store);
 //edit page
-router.get('/edit', articleController.edit);
+router.get('/edit/:id', articleController.edit);
 
 module.exports = router;

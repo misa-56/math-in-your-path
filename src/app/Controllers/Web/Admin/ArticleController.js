@@ -41,9 +41,17 @@ class ArticleController {
     }
   }
 
-  edit (req, res)
+  async edit (req, res)
   {
-    res.render('partials/admin/main/articles/edit', {layout: 'admin.hbs'});
+    const articles = await Article.findOne({where: {id: req.params.id}});
+
+    if (articles === null) {
+      // Handle the case when no article is found
+      return res.status(404).send('Article not found');
+    }
+    articles.dataValues.createdAt = articles.dataValues.createdAt.toISOString().split('T')[0];
+
+    res.render('partials/admin/main/articles/edit', {layout: 'admin.hbs', article: articles.dataValues });
   }
 
   update ()
