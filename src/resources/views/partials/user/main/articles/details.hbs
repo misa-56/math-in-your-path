@@ -3,18 +3,18 @@
             <div class="row align-items-start">
                 <div class="col-lg-8 m-15px-tb">
                     <article class="article">
-                        <div class="article-img">
-                            <img src="https://www.bootdey.com/image/800x350/87CEFA/000000" title="" alt="">
+                        <div class="article-img d-flex justify-content-center">
+                            <img class="img-fluid" src="{{ article.bg_image }}" title="" alt="article image">
                         </div>
                         <div class="article-title">
-                            <h6><a href="#">{{ article.category }}</a></h6>
+                            <h6><a href="/{{ article.category }}">{{ article.category }}</a></h6>
                             <h2>{{ article.title }}</h2>
                             <div class="media">
                                 <div class="avatar">
                                     <img src="https://bootdey.com/img/Content/avatar/avatar1.png" title="" alt="">
                                 </div>
                                 <div class="media-body">
-                                    <label>Rachel Roth</label>
+                                    <label>Misha</label>
                                     <span>{{ article.createdAt }}</span>
                                 </div>
                             </div>
@@ -72,7 +72,7 @@
                                     <img src="https://bootdey.com/img/Content/avatar/avatar6.png" title="" alt="">
                                 </div>
                                 <div class="media-body">
-                                    <h6>Hello, I'm<br> Rachel Roth</h6>
+                                    <h6>Hello, I'm<br> Misha</h6>
                                 </div>
                             </div>
                             <p>I design and develop services for customers of all sizes, specializing in creating stylish, modern websites, web services and online stores</p>
