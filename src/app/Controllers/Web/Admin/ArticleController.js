@@ -15,10 +15,10 @@ class ArticleController {
 
   async store (req, res)
   {
-    console.log(req.body);
+    
     try{
       if(req.body.category && req.body.status && req.body.title) {
-        const { category, status, title, content, intro, featured } = req.body;
+        const { category, status, title, content, intro, featured, bg_image } = req.body;
         
         await Article.create({ 
           category, 
@@ -27,6 +27,7 @@ class ArticleController {
           content,
           intro,
           featured,
+          bg_image
         });
 
         res.redirect('/kingslanding');
@@ -43,20 +44,43 @@ class ArticleController {
 
   async edit (req, res)
   {
-    const articles = await Article.findOne({where: {id: req.params.id}});
+    let categories;
+    try {
+      const articles = await Article.findOne({where: {id: req.params.id}});
+      await Article.findAll({group: ['category'], 
+      attributes: ['category'],
+    })
+      .then((results) => {
+        categories = results.map((result) => result.category);
+        console.log('categories', categories);
+      })
+      .catch((error) => {
+        console.error(error);
+      });
+    console.log(categories);
+      if (articles === null) {
+        // Handle the case when no article is found
+        return res.status(404).send('Article not found');
+      }
+      articles.dataValues.createdAt = articles.dataValues.createdAt.toISOString().split('T')[0];
 
-    if (articles === null) {
-      // Handle the case when no article is found
-      return res.status(404).send('Article not found');
+      res.render('partials/admin/main/articles/edit', {layout: 'admin.hbs', article: articles.dataValues, categories });
+    } catch (error) {
+      console.error(error);
     }
-    articles.dataValues.createdAt = articles.dataValues.createdAt.toISOString().split('T')[0];
-
-    res.render('partials/admin/main/articles/edit', {layout: 'admin.hbs', article: articles.dataValues });
   }
 
-  update ()
+  async update (req, res)
   {
-    
+    console.log('abc', req.params.id);
+    try {
+      const article = await Article.findByPk(req.params.id);
+      await article.update(req.body);
+      res.redirect('/kingslanding');
+    } catch (error) {
+      console.error(error);
+      res.status(500).send('Internal Server Error');
+    }
   }
 }
 

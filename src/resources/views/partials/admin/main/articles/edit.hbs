@@ -16,6 +16,7 @@
     </section>
 
 <section class="content">
+  <form method="POST" action="/kingslanding/update/{{ article.id }}">
       <div class="container-fluid">
         <!-- SELECT2 EXAMPLE -->
         <div class="card card-default">
@@ -34,25 +35,38 @@
           <!-- /.card-header -->
           <div class="card-body">
             <div class="row">
-              <div class="col-md-6">
+              <div class="col-md-4">
                 <div class="form-group">
-                  <label>Change Category</label>
-                  <select class="form-control select2" style="width: 100%;">
-                    <option selected="selected">Statistics</option>
-                    <option>Machine Learning</option>
-                    <option>Python</option>
-                    <option>Project</option>
+                  <label>Category: <span class="text-success">{{ article.category }}</span></label>
+                  <select class="form-control select2" style="width: 100%;" name="category">
+                    <option value="" disabled selected>Change category</option>
+                    {{#each categories}}
+                    <option value="{{ this }}">{{this}}</option>
+                    {{/each}}
                   </select>
                 </div>
               </div>
               <!-- /.col -->
-              <div class="col-md-6">
+              <div class="col-md-4">
                 <!-- /.form-group -->
                 <div class="form-group">
-                  <label>Status</label>
-                  <select class="form-control select2" style="width: 100%;">
-                    <option selected="selected">Active</option>
-                    <option>Inactive</option>
+                  <label>Status: <span class="text-success">{{ article.status }}</span></label>
+                  <select class="form-control select2" style="width: 100%;" name="status">
+                    <option value="Active" selected="selected">Active</option>
+                    <option value="Inactive">Inactive</option>
+                  </select>
+                </div>
+                <!-- /.form-group -->
+              </div>
+              <!-- /.col -->
+              <div class="col-md-4">
+                <!-- /.form-group -->
+                <div class="form-group">
+                  <label>Featured article: <span class="text-danger">{{ article.featured }}</span> (1 means this article is featured)</label>
+                  <select class="form-control select2" name="featured" style="width: 100%;">
+                    <option value="" disabled selected>Set featured article</option>
+                    <option value="0">No</option>
+                    <option value="1">Yes</option>
                   </select>
                 </div>
                 <!-- /.form-group -->
@@ -61,10 +75,22 @@
             </div>
             <!-- /.row -->
             <h5>Title</h5>
-                <div class="form-group">
-                    <input type="text" class="form-control my-colorpicker1" value="{{ article.title }}">
-                </div>  
+            <div class="form-group">
+                <input type="text" class="form-control my-colorpicker1" value="{{ article.title }}" name="title">
+            </div>
             <!-- /.row -->
+            <!-- /.row -->
+            <h5>Short information</h5>
+            <div class="form-group">
+                <textarea type="text" name="intro" class="form-control my-colorpicker1">{{ article.intro }}</textarea>
+            </div>
+            <!-- /.row -->
+            <div class="form-group">
+              {{!-- <h5>Upload image</h5>
+              <input type="file" id="img" name=""> --}}
+              <h5>Link article image</h5>
+              <textarea type="text" name="bg_image" class="form-control my-colorpicker1">{{ article.bg_image }}</textarea>
+            </div>
           </div>
           <!-- /.card-body -->
           
@@ -97,11 +123,12 @@
         <!-- /.card -->
       </div>
       <div class="container-fluid">
-        <button class="btn btn-success">Submit</button>
+        <button class="btn btn-success" type="submit">Submit</button>
       </div>
-      <!-- /.container-fluid -->
-    </section>
-    <!-- /.content -->
+    </form>
+    <!-- /.container-fluid -->
+  </section>
+  <!-- /.content -->
 
 <script>
   ClassicEditor
