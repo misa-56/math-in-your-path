@@ -6,7 +6,7 @@ const Article = require('./Article');
 async function connectDB() {
 
     await User.sync({
-        alter: true
+        // alter: true
     });
     await Article.sync({ 
         // alter: true 
