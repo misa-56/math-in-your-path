@@ -47,5 +47,28 @@ module.exports = {
             // Handle the error case appropriately
             res.render('login', {layout: '', error: 'An error occurred' });
         });
+    },
+
+    //PROFILE
+    async profile (req, res) {
+        const userId = req.session.user.id;
+
+        const user = await User.findByPk(userId);
+
+        res.render('partials/admin/main/user-profile/profile', { layout: 'admin', user: user.dataValues});
+    },
+
+    async updateProfile(req, res) {
+        try {
+            const userId = req.session.user.id;
+            const user = await User.findByPk(userId);
+            console.log(req.body);
+            await user.update(req.body);
+
+            res.redirect('back');
+          } catch (error) {
+            console.error(error);
+            res.status(500).send('Internal Server Error');
+          }
     }
 }

@@ -22,7 +22,7 @@ User.init({
     allowNull: true,
   },
   intro: {
-    type: DataTypes.STRING,
+    type: DataTypes.TEXT,
     allowNull: true,
   },
 }, {

@@ -30,6 +30,9 @@ router.post('/login', userController.login);
 router.use(isAuthenticated);
 
 // Routes accessible only when the user is authenticated
+//admin profile
+router.get('/profile', userController.profile);
+router.post('/profile/update', userController.updateProfile)
 
 //Home Page
 router.get('/', homeController.index);
@@ -48,5 +51,6 @@ router.post('/articles/create', articleController.store);
 //edit page
 router.get('/edit/:id', articleController.edit);
 router.post('/update/:id', articleController.update);
+
 
 module.exports = router;
