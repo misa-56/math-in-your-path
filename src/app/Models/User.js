@@ -17,6 +17,14 @@ User.init({
     type: DataTypes.STRING,
     allowNull: false,
   },
+  avatar: {
+    type: DataTypes.STRING,
+    allowNull: true,
+  },
+  intro: {
+    type: DataTypes.STRING,
+    allowNull: true,
+  },
 }, {
   sequelize, // pass the connection instance
   tableName: 'users', // choose the model name
