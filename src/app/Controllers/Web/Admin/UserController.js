@@ -70,5 +70,47 @@ module.exports = {
             console.error(error);
             res.status(500).send('Internal Server Error');
           }
+    },
+
+    createUser(req, res) {
+
+        res.render('partials/admin/main/create-user/create-user', { layout: 'admin' });
+    },
+
+    async storeUser(req, res) {
+        try{
+            if(req.body.name && req.body.email && req.body.password && req.body.confirm_password) {
+              const { name, email, password, confirm_password } = req.body;
+
+                // Check if password and confirm_password match
+                if (password !== confirm_password) {
+                    res.send('Password and confirm password do not match');
+                    return;
+                }
+                
+                const plainTextPassword = password;
+
+                bcrypt.hash(plainTextPassword, 10)
+                .then( async (hash) => {
+                    await User.create({ 
+                        name, 
+                        email, 
+                        password: hash,
+                    });
+                    res.redirect('/kingslanding');
+                })
+                .catch(error => {
+                    console.error(error); // Handle error
+                    res.send('Error occurred during user creation');
+                });
+            }
+            else{
+              res.send('Not added to db');
+            }
+        }
+        catch(error){
+            console.error(error);
+            res.send('Error occurred during user creation');
+        }
     }
 }

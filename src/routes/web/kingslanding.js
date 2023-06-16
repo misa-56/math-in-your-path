@@ -32,7 +32,10 @@ router.use(isAuthenticated);
 // Routes accessible only when the user is authenticated
 //admin profile
 router.get('/profile', userController.profile);
-router.post('/profile/update', userController.updateProfile)
+router.post('/profile/update', userController.updateProfile);
+//create user
+router.get('/create-user', userController.createUser);
+router.post('/create-user/store', userController.storeUser);
 
 //Home Page
 router.get('/', homeController.index);
