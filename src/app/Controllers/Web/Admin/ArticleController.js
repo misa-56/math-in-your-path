@@ -27,7 +27,8 @@ class ArticleController {
           content,
           intro,
           featured,
-          bg_image
+          bg_image,
+          user_id: req.session.user.id
         });
 
         res.redirect('/kingslanding');

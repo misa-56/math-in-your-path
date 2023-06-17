@@ -27,7 +27,6 @@ document.addEventListener('DOMContentLoaded', () => {
                             -webkit-box-orient: vertical;">
                             ${article.intro }
                             </p>
-                            <a href="/posts/${article.slug }/${article.id }" class="text-decoration-none">Continue reading</a>
                         </div>
                         <div class="col-auto d-none d-lg-block">
                             <img class="bd-placeholder-img rounded" width="200" height="120" src="https://files.fullstack.edu.vn/f8-prod/blog_posts/6936/6422afa5a62f8.jpg"></img>

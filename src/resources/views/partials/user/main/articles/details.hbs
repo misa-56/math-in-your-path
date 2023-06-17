@@ -10,11 +10,11 @@
                             <h6><a href="/{{ article.category }}">{{ article.category }}</a></h6>
                             <h2>{{ article.title }}</h2>
                             <div class="media">
-                                <div class="avatar">
+                                {{!-- <div class="avatar">
                                     <img src="https://bootdey.com/img/Content/avatar/avatar1.png" title="" alt="">
-                                </div>
+                                </div> --}}
                                 <div class="media-body">
-                                    <label>Misha</label>
+                                    {{!-- <label>Misha</label> --}}
                                     <span>{{ article.createdAt }}</span>
                                 </div>
                             </div>
@@ -74,10 +74,10 @@
                                         <div class="avatar">
                                             <img src="https://bootdey.com/img/Content/avatar/avatar6.png" title="" alt="">
                                         </div>
-                                        <h6>Nhat Hoang</h6>
+                                        <h6>{{ user.name }}</h6>
                                     </div>
                                     
-                                    <p class="">Hello, my name is Nhat Hoang. I'm a software engineer with a passion for crafting innovative solutions. I specialize in developing robust applications, leveraging my expertise in various programming languages to create user-friendly interfaces and scalable architectures.</p>
+                                    <p class="">{{ user.intro }}</p>
                                 </div>
                             </div>
                         </div>
