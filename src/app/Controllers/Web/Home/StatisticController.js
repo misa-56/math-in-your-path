@@ -10,7 +10,7 @@ class StatisticsController {
                 category: 'Statistics',
             }
         });
-        console.log('articles', articles);
+        // console.log('articles', articles);
 
         // const articlesWithOwnProperties = articles.map(article => Object.assign({}, article.get({ plain: true })));
 
@@ -21,7 +21,7 @@ class StatisticsController {
             return plainArticle;
           });
 
-        res.render('partials/user/main/statistics/statistics', { articles: articlesWithOwnProperties });
+        res.render('partials/user/main/statistics/statistics', { articles: articlesWithOwnProperties, activePage: 'statistics' });
     }
 }
 

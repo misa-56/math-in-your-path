@@ -21,7 +21,7 @@ class ProjectsController {
             return plainArticle;
           });
 
-        res.render('partials/user/main/projects/projects', { articles: articlesWithOwnProperties });
+        res.render('partials/user/main/projects/projects', { articles: articlesWithOwnProperties, activePage: 'projects' });
     }
 }
 

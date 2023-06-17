@@ -38,7 +38,8 @@ class HomeController {
         {
             articles: articlesWithOwnProperties, 
             featured: modifiedFeaturedArticles.slice(1, 4), 
-            newestFeatured: modifiedFeaturedArticles[0] 
+            newestFeatured: modifiedFeaturedArticles[0],
+            activePage: 'home'
         });
     }
 

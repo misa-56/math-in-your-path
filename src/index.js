@@ -23,6 +23,8 @@ const morgan = require('morgan');
 require('dotenv').config();
 //import db
 const db = require('./app/Models');
+const eqHelper = require('./app/Helpers/helpers'); // Import the helper file
+
 db.connectDB();
 
 // import routes
@@ -49,6 +51,9 @@ const port = process.env.PORT || 3000;
 app.use(express.static('./src/public'));
 //HTTP logger
 app.use(morgan('combined'));
+
+// Register the helper with Handlebars
+handlebars.create({ helpers: { eq: eqHelper } });
 
 //Template engine
 app.engine('.hbs', engine({extname: '.hbs'}));

@@ -21,7 +21,7 @@ class PythonController {
             return plainArticle;
           });
 
-        res.render('partials/user/main/python/python', { articles: articlesWithOwnProperties });
+        res.render('partials/user/main/python/python', { articles: articlesWithOwnProperties, activePage: 'python' });
     }
 }
 
