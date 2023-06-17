@@ -19,7 +19,7 @@ class ArticleController {
             articles.dataValues.createdAt = articles.dataValues.createdAt.toISOString().split('T')[0];
             // console.log('articles', articles);
 
-            res.render('partials/user/main/articles/details', { article: articles.dataValues, user: user.dataValues });
+            res.render('partials/user/main/articles/details', { article: articles.dataValues, user: user.dataValues, activePage: articles.dataValues.category});
         }
         catch (error) {
             // Handle any potential errors

@@ -21,7 +21,7 @@ class StatisticsController {
             return plainArticle;
           });
 
-        res.render('partials/user/main/statistics/statistics', { articles: articlesWithOwnProperties, activePage: 'statistics' });
+        res.render('partials/user/main/statistics/statistics', { articles: articlesWithOwnProperties, activePage: 'Statistics' });
     }
 }
 

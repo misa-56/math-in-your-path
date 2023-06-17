@@ -21,7 +21,7 @@ class MachineLearningController {
             return plainArticle;
           });
 
-        res.render('partials/user/main/machine-learning/machine-learning', { articles: articlesWithOwnProperties, activePage: 'machine-learning' });
+        res.render('partials/user/main/machine-learning/machine-learning', { articles: articlesWithOwnProperties, activePage: 'Machine Learning' });
     }
 }
 
