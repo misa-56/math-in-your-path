@@ -17,8 +17,8 @@ class StatisticsController {
         const articlesWithOwnProperties = articles.map(article => {
             const plainArticle = article.get({ plain: true });
             // Convert the updatedAt property to an ISO date format
-            plainArticle.updatedAt = plainArticle.updatedAt.toISOString().split('T')[0];
-            return plainArticle;
+            plainArticle.createdAt = plainArticle.createdAt.toISOString().split('T')[0];
+            return {...plainArticle, slug: article.title.replace(/ /g, '-'),};
           });
 
         res.render('partials/user/main/statistics/statistics', { articles: articlesWithOwnProperties, activePage: 'Statistics' });

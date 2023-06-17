@@ -30,7 +30,7 @@ class HomeController {
         const articlesWithOwnProperties = articles.map(article => {
             article.slug = article.title.replace(/ /g, '-');
             article.categorySlug = article.category.replace(/ /g, '-'),
-            article.updatedAt = article.updatedAt.toISOString().split('T')[0];
+            article.createdAt = article.createdAt.toISOString().split('T')[0];
             return article;
           });
 
