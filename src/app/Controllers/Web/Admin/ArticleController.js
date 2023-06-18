@@ -73,7 +73,6 @@ class ArticleController {
 
   async update (req, res)
   {
-    console.log('abc', req.params.id);
     try {
       const article = await Article.findByPk(req.params.id);
       await article.update(req.body);
