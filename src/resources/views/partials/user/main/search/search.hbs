@@ -1,5 +1,5 @@
 
-<header class="py-4 pb-3 mb-2 border-bottom col-12 row">
+<header class="py-4 pb-3 mb-2 border-bottom col-12">
     <div class="px-0">
         <h1 class="fw-bold">Searching result</h1>
         {{!-- <p class="lead my-3 text-secondary">Uncover the power of statistics in data analysis. Explore concepts, methods, and applications for deriving meaningful insights and making informed decisions.</p> --}}
@@ -37,31 +37,8 @@
             </div>
         </article>
     </div>
-
-    
     
 </div>
-
-
-<nav aria-label="Page navigation example col-12">
-    <ul class="pagination">
-        <li class="page-item">
-        <a class="page-link" href="/posts/{{ slug }}/{{ id }}" aria-label="Previous">
-            <span aria-hidden="true">&laquo;</span>
-            <span class="sr-only">Previous</span>
-        </a>
-        </li>
-        <li class="page-item"><a class="page-link" href="/posts/{{ slug }}/{{ id }}">1</a></li>
-        <li class="page-item"><a class="page-link" href="/posts/{{ slug }}/{{ id }}">2</a></li>
-        <li class="page-item"><a class="page-link" href="/posts/{{ slug }}/{{ id }}">3</a></li>
-        <li class="page-item">
-        <a class="page-link" href="/posts/{{ slug }}/{{ id }}" aria-label="Next">
-            <span aria-hidden="true">&raquo;</span>
-            <span class="sr-only">Next</span>
-        </a>
-        </li>
-    </ul>
-</nav>
 
 <script>
     var results = "{{ articles }}";
