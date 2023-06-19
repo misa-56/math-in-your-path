@@ -1,14 +1,17 @@
 
-<header class="py-4 pb-3 mb-2 border-bottom col-12">
-    <div class="px-0">
+<header class="py-4 pb-3 mb-2 border-bottom row">
+    <div class="px-0 col-12">
         <h1 class="fw-bold">Searching result</h1>
         {{!-- <p class="lead my-3 text-secondary">Uncover the power of statistics in data analysis. Explore concepts, methods, and applications for deriving meaningful insights and making informed decisions.</p> --}}
     </div>
 </header>
+<div class="row">
+    <div class="col-12 p-0" id="no_article"></div>
+</div>
 <div class="row g-5">
     <div class="col-md-8">
         <article class="blog-post">
-            <span id="no_article"></span>
+            
             <div class="row mb-2" id="articles-container">
                 {{#each articles}}
                     <div class="row g-0 overflow-hidden flex-md-row mb-1 h-md-250 position-relative border-bottom">
