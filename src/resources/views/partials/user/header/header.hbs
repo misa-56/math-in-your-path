@@ -2,11 +2,11 @@
   <div class="container-fluid">
     <a href="/" class="text-decoration-none"><strong class="text-danger fst-italic fs-2">//</strong><strong class="text-dark fst-italic fs-2">MIYP</strong></a>
     <form class="d-flex" style="width: 450px;" 
-    {{!-- method="post" action="/" --}}
+    method="get" action="/search"
     >
       <div class="input-group rounded">
-        <input type="search" class="form-control rounded" value="" placeholder="Search" aria-label="Search" aria-describedby="search-addon" />
-        <button class="input-group-text border-0" type="submit" id="search-addon" onclick="buildingFunction()">
+        <input type="search" class="form-control rounded" name="query" value="{{query}}" placeholder="Search" aria-label="Search" aria-describedby="search-addon" />
+        <button class="input-group-text border-0" type="submit" id="search-addon">
           <i class="fas fa-search"></i>
         </button>
       </div>

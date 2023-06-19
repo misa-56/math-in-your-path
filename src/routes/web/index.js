@@ -16,9 +16,7 @@ router.get('/projects', projectController.index);
 //detail page
 router.get('/posts/:slug/:id', articleController.show);
 //searching
-router.get('/search', (req, res) => {
-res.render('partials/user/main/search/search');
-})  
+router.get('/search', articleController.search);  
 
 
 module.exports = router;

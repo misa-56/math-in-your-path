@@ -1,5 +1,6 @@
 const Article = require('../../../Models/Article');
 const User = require('../../../Models/User');
+const { Op } = require("sequelize");
 
 class ArticleController {
 
@@ -41,6 +42,29 @@ class ArticleController {
             console.error(error);
             res.status(500).send('Internal Server Error');
         }
+    }
+
+    async search(req, res) 
+    {
+        console.log(req.query.query);
+        const articles = await Article.findAll({
+            order:[['id', 'DESC']],
+            where: {
+                title: { [Op.like]: `%${req.query.query}%` }
+            }
+        });
+        // console.log('articles', articles);
+
+        // const articlesWithOwnProperties = articles.map(article => Object.assign({}, article.get({ plain: true })));
+
+        const articlesWithOwnProperties = articles.map(article => {
+            const plainArticle = article.get({ plain: true });
+            // Convert the updatedAt property to an ISO date format
+            plainArticle.createdAt = plainArticle.createdAt.toISOString().split('T')[0];
+            return {...plainArticle, slug: article.title.replace(/ /g, '-'),};
+          });
+
+        res.render('partials/user/main/search/search', { articles: articlesWithOwnProperties, activePage: 'Search', query: req.query.query });
     }
 }
 
