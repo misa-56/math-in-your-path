@@ -39,7 +39,9 @@ class HomeController {
             articles: articlesWithOwnProperties, 
             featured: modifiedFeaturedArticles.slice(1, 4), 
             newestFeatured: modifiedFeaturedArticles[0],
-            activePage: 'home'
+            activePage: 'home',
+            title: 'MIYP - Math in your career path',
+            description: 'Exploring the realm of data analysis and code, we aim to share knowledge and insights to inspire and empower.'
         });
     }
 

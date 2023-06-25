@@ -21,7 +21,12 @@ class PythonController {
             return {...plainArticle, slug: article.title.replace(/ /g, '-'),};
           });
 
-        res.render('partials/user/main/python/python', { articles: articlesWithOwnProperties, activePage: 'Python' });
+        res.render('partials/user/main/python/python', { 
+            articles: articlesWithOwnProperties, 
+            activePage: 'Python',
+            title: 'Python',
+            description: 'Harness Python for data analysis and automation. Learn how to manipulate and analyze data effectively using Python libraries and frameworks.'
+          });
     }
 }
 

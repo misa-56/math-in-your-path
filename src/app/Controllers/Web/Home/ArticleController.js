@@ -34,7 +34,9 @@ class ArticleController {
                 article: articles.dataValues, 
                 user: user.dataValues, 
                 activePage: articles.dataValues.category,
-                latestArticles: latestArticleData
+                latestArticles: latestArticleData,
+                title: articles.dataValues.title,
+                description: articles.dataValues.intro
             });
         }
         catch (error) {

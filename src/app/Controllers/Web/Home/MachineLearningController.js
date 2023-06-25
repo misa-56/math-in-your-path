@@ -21,7 +21,11 @@ class MachineLearningController {
             return {...plainArticle, slug: article.title.replace(/ /g, '-'),};
           });
 
-        res.render('partials/user/main/machine-learning/machine-learning', { articles: articlesWithOwnProperties, activePage: 'Machine Learning' });
+        res.render('partials/user/main/machine-learning/machine-learning', { 
+            articles: articlesWithOwnProperties, activePage: 'Machine Learning',
+            title: 'Machine Learning',
+            description: 'Delve into machine learning techniques. Discover algorithms, best practices, and real-world applications for training and deploying models.'
+     });
     }
 }
 

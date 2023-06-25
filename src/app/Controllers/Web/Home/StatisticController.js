@@ -21,7 +21,12 @@ class StatisticsController {
             return {...plainArticle, slug: article.title.replace(/ /g, '-'),};
           });
 
-        res.render('partials/user/main/statistics/statistics', { articles: articlesWithOwnProperties, activePage: 'Statistics' });
+        res.render('partials/user/main/statistics/statistics', { 
+            articles: articlesWithOwnProperties, 
+            activePage: 'Statistics',
+            title: 'Statistics',
+            description: 'Uncover the power of statistics in data analysis. Explore concepts, methods, and applications for deriving meaningful insights and making informed decisions.'
+        });
     }
 }
 
