@@ -5,18 +5,6 @@ const handlebars = require('express-handlebars');
 const bodyParser = require('body-parser');
 // import handlebars from 'express-handlebars';
 const {engine} = handlebars;
-//import bcrypt
-// const bcrypt = require('bcrypt');
-
-// const plainTextPassword = '123456';
-
-// bcrypt.hash(plainTextPassword, 10)
-//   .then(hash => {
-//     console.log(hash); // Print the hashed password
-//   })
-//   .catch(error => {
-//     console.error(error); // Handle error
-//   });
 // import morgan from 'morgan';
 const morgan = require('morgan');
 //import .env
@@ -26,6 +14,8 @@ const db = require('./app/Models');
 const eqHelper = require('./app/Helpers/helpers'); // Import the helper file
 
 db.connectDB();
+// Load Socket.IO controller
+const BitcoinTrackerController = require('./app/Controllers/Web/Home/Projects/BitcoinTrackerController');
 
 // import routes
 const home = require('./routes/web');
@@ -33,6 +23,10 @@ const admin = require('./routes/web/kingslanding');
 
 
 const app = express();
+
+//import socket io
+const http = require('http').Server(app);
+const io = require('socket.io')(http);
 
 // Set up session middleware
 app.use(session({
@@ -77,4 +71,8 @@ app.post('/webhook', (req, res) => {
   res.status(200).send('Webhook received successfully');
 });
 
-app.listen(port, () => {});
+http.listen(port, () => {
+  console.log(`Server running on port ${port}`);
+});
+
+io.on('connection', BitcoinTrackerController.handleSocketConnection);
