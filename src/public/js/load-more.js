@@ -11,28 +11,30 @@ document.addEventListener('DOMContentLoaded', () => {
 
         articles.forEach((article) => {
             const articleElement = document.createElement('div');
-            articleElement.className = 'row g-0 border rounded overflow-hidden flex-md-row mb-1 shadow-sm h-md-250 position-relative article';
+            articleElement.className = 'row g-0 overflow-hidden flex-md-row mb-1 h-md-250 position-relative border-bottom';
             articleElement.innerHTML = `
-                <div class="col p-4 d-flex flex-column position-static">
-                    <a href="/${article.categorySlug }" class="d-inline-block mb-2 text-success text-decoration-none">${article.category }</a>
-                    <div class="d-flex">
-                        <div>
-                            <h3 class="mb-0"><a href="/posts/${article.slug }/${article.id }" class="text-decoration-none text-dark">${article.title }</a></h3>
-                            <div class="mb-1 text-muted">${article.updatedAt }</div>
-                            <p class="card-text mb-auto" 
-                            style="overflow: hidden; 
-                            display: -webkit-box; 
-                            -webkit-line-clamp: 2;
-                            line-clamp: 2;
-                            -webkit-box-orient: vertical;">
-                            ${article.intro }
-                            </p>
-                        </div>
-                        <div class="col-auto d-none d-lg-block">
-                            <img class="bd-placeholder-img rounded" width="200" height="120" src="https://files.fullstack.edu.vn/f8-prod/blog_posts/6936/6422afa5a62f8.jpg"></img>
+            <div class="col py-2 py-md-4 d-flex flex-column position-static">
+                <div class="d-flex row">
+                    <div class="col-8">
+                        <a href="/${article.categorySlug}" class="d-inline-block mb-2 text-success text-decoration-none">${article.category}</a>
+                        <h5 class="mb-0"><a href="/posts/${article.slug }/${article.id}" class="text-decoration-none text-dark">${article.title}</a></h5>
+                        <div class="mb-1 text-muted d-none d-md-flex"><small><i class="fa-solid fa-pen"></i> ${article.createdAt}</small></div>
+                        <div class="d-none d-md-flex">
+                        <p class="card-text mb-auto text-secondary" 
+                        style="overflow: hidden; 
+                        display: -webkit-box; 
+                        -webkit-line-clamp: 2;
+                        line-clamp: 2;
+                        -webkit-box-orient: vertical;">
+                        ${article.intro }
+                        </p>
                         </div>
                     </div>
+                    <div class="col-4 d-flex align-items-center">
+                        <a href="/posts/${article.slug }/${article.id}" class="w-100"><img alt="article image" class="bd-placeholder-img rounded w-100" style="max-height: 140px;" src="${article.bg_image }"></img></a>
+                    </div>
                 </div>
+            </div>
             `;
             articlesContainer.appendChild(articleElement);
         });
