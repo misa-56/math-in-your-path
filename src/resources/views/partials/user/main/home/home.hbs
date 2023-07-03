@@ -1,7 +1,8 @@
 {{!-- Featured Articles --}}
 
-<div class="mb-4 text-dark d-flex justify-content-between">
-  <div class="col-md-6 px-0">
+<div class="mb-4 row">
+  <a href="/posts/{{ newestFeatured.slug }}/{{ newestFeatured.id }}" class="col-md-6"><img src="{{ newestFeatured.bg_image }}" class="rounded order-md-2" style="max-height: 300px;"/></a>
+  <div class="col-md-6 order-md-1">
     <h3 class="display-5"
     style="overflow: hidden;
         display: -webkit-box; 
@@ -10,15 +11,15 @@
         -webkit-box-orient: vertical;">
       <a href="/posts/{{ newestFeatured.slug }}/{{ newestFeatured.id }}" class="text-dark fw-bold text-decoration-none">{{ newestFeatured.title }}</a>
     </h3>
-    <p class="lead my-3 text-secondary"
+    <p class="lead my-3 text-secondary fs-6"
         style="overflow: hidden; 
         display: -webkit-box; 
         -webkit-line-clamp: 3;
         line-clamp: 3;
         -webkit-box-orient: vertical;">{{ newestFeatured.intro }}</p>
   </div>
-  <a href="/posts/{{ newestFeatured.slug }}/{{ newestFeatured.id }}"><img src="{{ newestFeatured.bg_image }}" class="rounded" height="300"/></a>
 </div>
+
 
 <div class="row mb-2 border-bottom">
   {{#each featured}}
@@ -64,27 +65,29 @@
 
     <article class="blog-post">
       <div class="">
-        <div class="row mb-2" id="articles-container">
+        <div class="mb-2" id="articles-container">
             {{#each articles}}
                 {{!-- <div class="article"> --}}
                     <div class="row g-0 overflow-hidden flex-md-row mb-1 h-md-250 position-relative border-bottom">
-                        <div class="col py-4 d-flex flex-column position-static">
+                        <div class="col py-2 py-md-4 d-flex flex-column position-static">
                             <div class="d-flex row">
                                 <div class="col-8">
                                   <a href="/{{ categorySlug }}" class="d-inline-block mb-2 text-success text-decoration-none">{{ category }}</a>
                                   <h5 class="mb-0"><a href="/posts/{{ slug }}/{{ id }}" class="text-decoration-none text-dark">{{ title }}</a></h5>
-                                  <div class="mb-1 text-muted"><small><i class="fa-solid fa-pen"></i> {{ createdAt }}</small></div>
-                                  <p class="card-text mb-auto text-secondary" 
-                                  style="overflow: hidden; 
-                                  display: -webkit-box; 
-                                  -webkit-line-clamp: 2;
-                                  line-clamp: 2;
-                                  -webkit-box-orient: vertical;">
-                                  {{ intro }}
-                                  </p>
+                                  <div class="mb-1 text-muted d-none d-md-flex"><small><i class="fa-solid fa-pen"></i> {{ createdAt }}</small></div>
+                                  <div class="d-none d-md-flex">
+                                    <p class="card-text mb-auto text-secondary" 
+                                    style="overflow: hidden; 
+                                    display: -webkit-box; 
+                                    -webkit-line-clamp: 2;
+                                    line-clamp: 2;
+                                    -webkit-box-orient: vertical;">
+                                    {{ intro }}
+                                    </p>
+                                  </div>
                                 </div>
-                                <div class="col-4 d-none d-lg-block">
-                                    <a href="/posts/{{ slug }}/{{ id }}"><img alt="article image" class="bd-placeholder-img rounded w-100" height="140" src="{{ bg_image }}"></img></a>
+                                <div class="col-4 d-flex align-items-center">
+                                    <a href="/posts/{{ slug }}/{{ id }}" class="w-100"><img alt="article image" class="bd-placeholder-img rounded w-100" style="max-height: 140px;" src="{{ bg_image }}"></img></a>
                                 </div>
                             </div>
                         </div>

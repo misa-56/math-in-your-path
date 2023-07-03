@@ -1,44 +1,56 @@
-
-<header class="py-4 pb-3 mb-2 border-bottom row">
-    <div class="px-0 col-12">
+<header class="py-4 pb-3 mb-2 row">
+    <div class="px-md-0 col-12">
         <h1 class="fw-bold">Searching result</h1>
-        {{!-- <p class="lead my-3 text-secondary">Uncover the power of statistics in data analysis. Explore concepts, methods, and applications for deriving meaningful insights and making informed decisions.</p> --}}
+        {{!-- <p class="lead my-3 text-secondary fs-6">Uncover the power of statistics in data analysis. Explore concepts, methods, and applications for deriving meaningful insights and making informed decisions.</p> --}}
     </div>
 </header>
-<div class="row">
-    <div class="col-12 p-0" id="no_article"></div>
+<div class="">
+    <div class="p-0" id="no_article"></div>
 </div>
 <div class="row g-5">
-    <div class="col-md-8">
+    <div class="col-md-8 border-top">
         <article class="blog-post">
-            
-            <div class="row mb-2" id="articles-container">
+        <div class="">
+            <div class="mb-2" id="articles-container">
                 {{#each articles}}
                     <div class="row g-0 overflow-hidden flex-md-row mb-1 h-md-250 position-relative border-bottom">
-                        <div class="col py-4 d-flex flex-column position-static">
+                        <div class="col py-2 py-md-4 d-flex flex-column position-static">
                             <div class="d-flex row">
                                 <div class="col-8">
-                                    {{!-- <a href="/{{ categorySlug }}" class="d-inline-block mb-2 text-success text-decoration-none">{{ category }}</a> --}}
                                     <h5 class="mb-0"><a href="/posts/{{ slug }}/{{ id }}" class="text-decoration-none text-dark">{{ title }}</a></h5>
                                     <div class="mb-1 text-muted"><small><i class="fa-solid fa-pen"></i> {{ createdAt }}</small></div>
-                                    <p class="card-text mb-auto text-secondary" 
-                                    style="overflow: hidden; 
-                                    display: -webkit-box; 
-                                    -webkit-line-clamp: 2;
-                                    line-clamp: 2;
-                                    -webkit-box-orient: vertical;">
-                                    {{ intro }}
-                                    </p>
-                                </div>
-                                <div class="col-4 d-none d-lg-block">
-                                    <a href="/posts/{{ slug }}/{{ id }}"><img alt="article image" class="bd-placeholder-img rounded w-100" height="140" src="{{ bg_image }}"></img></a>
+                                        <div class="d-none d-md-flex">
+                                            <p class="card-text mb-auto text-secondary" 
+                                            style="overflow: hidden; 
+                                            display: -webkit-box; 
+                                            -webkit-line-clamp: 2;
+                                            line-clamp: 2;
+                                            -webkit-box-orient: vertical;">
+                                            {{ intro }}
+                                            </p>
+                                        </div>
+                                    </div>
+                                <div class="col-4 d-flex align-items-center">
+                                    <a href="/posts/{{ slug }}/{{ id }}" class="w-100"><img alt="article image" class="bd-placeholder-img rounded w-100" style="max-height: 140px;" src="{{ bg_image }}"></img></a>
                                 </div>
                             </div>
                         </div>
                     </div>
                 {{/each}}
             </div>
+        </div>
         </article>
+    </div>
+
+    <div class="col-md-4 d-none d-md-block">
+        <div class="position-sticky py-4" style="top: 5rem;">
+            <div class="p-4 mb-3 bg-light rounded">
+                <h4 class="fst-italic">About</h4>
+                <p class="mb-0">Our team consists of a software engineer and a mathematician. 
+                With the ambition to create a common place for IT enthusiasts who love to delve into interesting aspects of AI, Data Science, we establish this website. 
+                Our initial hope is, that you can find useful Mathematics and Programming knowledge along your way to your desired career. </p>
+            </div>
+        </div>
     </div>
     
 </div>
