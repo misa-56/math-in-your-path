@@ -1,0 +1,24 @@
+services:
+  app:
+    image: node:14.15.5
+    command: sh -c "npm install && npm start"
+    ports:
+      - 127.0.0.1:3000:3000
+    working_dir: /app
+    volumes:
+      - ./:/app
+    environment:
+      MYSQL_HOST: mysql
+      MYSQL_USER: root
+      MYSQL_PASSWORD: miyp1121
+      MYSQL_DB: math-in-your-path
+  mysql:
+    image: mysql:8.0
+    volumes:
+    - miyp-mysql-data:/var/lib/mysql
+    environment:
+      MYSQL_ROOT_PASSWORD: miyp1121
+      MYSQL_DATABASE: math-in-your-path
+
+volumes:
+  miyp-mysql-data:
